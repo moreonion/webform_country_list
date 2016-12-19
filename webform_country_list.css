@@ -1,35 +1,36 @@
-.country-list-table-header {
+.webform-country-table .country-list-table-header {
   padding: 4px 9px;
 }
 
-.country-list-label-available {
+.webform-country-table .country-list-label-available {
   float: left;
   margin-left: 2%;
   width: 15%;
 }
 
-.country-list-label-code {
+.webform-country-table .country-list-label-code {
   float: left;
   width: 20%;
 }
 
-.country-list-label-country {
+.webform-country-table .country-list-label-country {
   float: left;
   width: 20%;
   margin-left: 20%;
 }
 
-.country-list-available {
+.webform-country-table .country-list-available,
+.webform-country-table .form-type-checkbox {
   float: left;
   width: 17%;
 }
 
-.country-list-code {
+.webform-country-table .country-list-code {
   float: left;
   width: 20%;
 }
 
-.country-list-country {
+.webform-country-table .country-list-country {
   margin-left: 20%;
   width: 40%;
 }

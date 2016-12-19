@@ -48,12 +48,12 @@ function theme_country_list_form(array $variables) {
   $header = array(
     '',
     array(
-      'data' => '<div class="country-list-table-header">' .
-        '<label class="country-list-label-available">' . t('Available') .
+      'data' => '<div class="country-list-table-header option-list-table-header">' .
+        '<label class="country-list-label-available option-list-label-available">' . t('Available') .
         '</label>' .
-        '<label class="country-list-label-code">' . t('Country Code') .
+        '<label class="country-list-label-code option-list-label-code">' . t('Country Code') .
         '</label>' .
-        '<label class="country-list-label-country">' . t('Country') .
+        '<label class="country-list-label-country option-list-label-label">' . t('Country') .
         '</label></div>',
       'class' => array('field-label'),
     ),
@@ -81,20 +81,17 @@ function theme_country_list_form(array $variables) {
     );
   }
 
-  $output = '<div class="form-item">';
-  $output .= theme(
-    'table',
-    array(
-      'header'     => $header,
-      'rows'       => $rows,
-      'attributes' => array(
-        'id'    => $table_id,
-        'class' => array('field-multiple-table'),
-      ),
-    )
-  );
-
-  $output .= '</div>';
+  $table = [
+    '#theme' => 'table',
+    '#theme_wrappers' => ['form_element'],
+    '#header' => $header,
+    '#rows' => $rows,
+  ];
+  $table['#attributes'] = [
+    'id' => $table_id,
+    'class' => ['webform-options-table', 'webform-country-table'],
+  ];
+  $output .= drupal_render($table);
 
   drupal_add_tabledrag($table_id, 'order', 'sibling', $order_class);
 
