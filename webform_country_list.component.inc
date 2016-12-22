@@ -152,7 +152,7 @@ function _webform_render_country_list(array $component, array $value = NULL, $fi
   include_once DRUPAL_ROOT . '/includes/locale.inc';
   $all_countries       = country_get_list();
   $required = !empty($component['required']) || !empty($component['mandatory']);
-  $available_countries = !$required ? array('no_selection' => t('<Select a country>')) : array();
+  $available_countries = !$required ? array('no_selection' => t('—Select a country—')) : array();
 
   foreach ($component['extra']['available_countries'] as $country_code) {
     $available_countries[$country_code] = $all_countries[$country_code];
