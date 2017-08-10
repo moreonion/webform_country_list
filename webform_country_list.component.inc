@@ -154,10 +154,12 @@ function _webform_render_country_list(array $component, array $value = NULL, $fi
   $required = !empty($component['required']) || !empty($component['mandatory']);
   $available_countries = !$required ? array('no_selection' => t('—Select a country—')) : array();
 
-  foreach ($component['extra']['available_countries'] as $country_code) {
-    $available_countries[$country_code] = $all_countries[$country_code];
+  if (!empty($component['extra']['available_countries'])) {
+    foreach ($component['extra']['available_countries'] as $country_code) {
+      $available_countries[$country_code] = $all_countries[$country_code];
+    }
   }
-  if (count($available_countries) == 1 && isset($available_countries['no_selection'])) {
+  else {
     $available_countries += $all_countries;
   }
   reset($available_countries);
