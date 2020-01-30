@@ -358,7 +358,6 @@ function _webform_form_builder_properties_country_list() {
  * Callback set in _webform_form_builder_properties_country_list().
  */
 function webform_country_list_form_builder_property_country_list_form($component, $edit, &$form_state, $property) {
-  $edit = _webform_edit_country_list($component);
   $form['available_countries'] = $edit['extra']['available_countries'] + array(
     '#form_builder' => array('property_group' => 'options'),
   );
